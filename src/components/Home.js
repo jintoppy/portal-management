@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-const Home = (props) => {
-    console.log(props);
-    const [posts, setPosts] = useState([]);
+const Home = ({posts, setPosts}) => {
     const [selectedPost, setSelectedPost] = useState(null);
 
     const getPosts = async () => {
@@ -57,12 +55,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addPosts: (posts) => {
+        setPosts: (posts) => {
             dispatch({
-                type: 'add_post',
+                type: 'add_posts',
                 payload: posts
             });
-        }
+        },
     };
 };
 

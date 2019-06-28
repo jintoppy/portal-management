@@ -3,6 +3,12 @@ const initialState = {
     selectedPost: null
 };
 const postReducer = (state = initialState, action) => {
+    if(action.type === 'add_posts') {
+        return {
+            ...state,
+            posts: action.payload
+        };
+    }
     if(action.type === 'add_post'){
         return {
             ...state,
